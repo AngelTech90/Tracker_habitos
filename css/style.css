@@ -1,0 +1,70 @@
+:root {
+  --bg: #FEF3E2;
+  --accent1: #FAB12F;
+  --accent2: #FA812F;
+  --danger: #DD0303;
+  --text: #222;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: #1a1a1a;
+  color: #fff;
+  font-weight: 600;
+}
+
+.hidden { display: none; }
+
+.main-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.month-accordion {
+  margin-bottom: 1.2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.accordion-btn {
+  background: var(--accent1);
+  border: none;
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  width: 80%;
+}
+
+.month-panel {
+  display: none;
+  flex-direction: column;
+  background: rgba(0,0,0,0.05);
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+.month-panel.show { display: flex; }
+
+.month-panel button {
+  border: none;
+  background: transparent;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+body.dark .month-panel {
+  background: rgba(255,255,255,0.08);
+}

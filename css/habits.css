@@ -1,0 +1,91 @@
+/* ========== GRID DE HÁBITOS ========== */
+.habits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 480px;
+  justify-items: center;
+}
+
+.habit-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 120px;
+  padding: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.habit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* ========== CÍRCULOS DE PROGRESO ========== */
+.habit-circle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 0.5rem auto;
+}
+
+.progress-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-arc {
+  stroke-dasharray: 263;
+  stroke-dashoffset: 263;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.circle-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.circle-emoji {
+  font-size: 1.5rem;
+}
+
+.circle-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+/* Mini circle inside modal */
+.habit-circle-mini {
+  width: 50px;
+  height: 50px;
+  background: var(--accent1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+/* DARK MODE */
+body.dark .habit-card {
+  background: #222;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.05);
+}
+
+body.dark .habit-card:hover {
+  box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+}
+
+body.dark .progress-svg circle:first-child {
+  stroke: #333;
+}

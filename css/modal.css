@@ -1,0 +1,210 @@
+/* ========== MODAL OVERLAY ========== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ========== MODAL CARD ========== */
+.modal-card {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  width: 90%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Close (X) Button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--danger);
+  font-weight: 700;
+}
+
+/* Header Section */
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.habit-head {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Progress Bar */
+.modal-progressbar {
+  width: 100%;
+  height: 8px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-track {
+  width: 100%;
+  height: 100%;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* Body / Calendar Days Grid */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.day-item {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.day-item:hover {
+  background: var(--accent1);
+  color: #000;
+}
+
+.day-item.checked {
+  background: var(--accent2);
+  color: #fff;
+  box-shadow: 0 0 0 2px #00000022;
+}
+
+/* Footer */
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: var(--accent2);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #ddd;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: var(--accent1);
+}
+
+.btn-secondary:hover {
+  background: #ccc;
+}
+
+/* ========== DARK MODE ========== */
+body.dark .modal-card {
+  background: #222;
+  color: #fff;
+}
+
+body.dark .progress-text {
+  color: #ccc;
+}
+
+body.dark .modal-progressbar {
+  background: rgba(255,255,255,0.15);
+}
+
+body.dark .day-item {
+  background: #333;
+  color: #fff;
+}
+
+body.dark .day-item:hover {
+  background: var(--accent1);
+  color: #000;
+}
+
+body.dark .day-item.checked {
+  background: var(--accent2);
+  color: #fff;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.15);
+}
+
+body.dark .btn-primary {
+  background: var(--accent1);
+  color: #000;
+}
+
+body.dark .btn-secondary {
+  background: #444;
+  color: #fff;
+}
+
+body.dark .modal-close {
+  color: var(--accent2);
+}

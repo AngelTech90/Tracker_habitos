@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rastreador de Hábitos</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/habits.css">
+  <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body class="app">
+
+  <!-- Navbar superior -->
+  <header class="topbar">
+    <div class="top-left">
+      <button id="themeToggle" class="theme-toggle" aria-label="Modo oscuro">🌙</button>
+    </div>
+
+    <div class="top-right">
+      <div class="year-accordion">
+        <button id="accordionBtn" class="accordion-btn">2025 ▾</button>
+        <div id="yearPanel" class="year-panel"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main-area">
+
+    <!-- Meses accordion -->
+    <div class="month-accordion">
+      <button id="monthAccordionBtn" class="accordion-btn month-btn">Enero ▾</button>
+      <div id="monthPanel" class="month-panel"></div>
+    </div>
+
+    <section id="habitsGrid" class="habits-grid"></section>
+  </main>
+
+  <!-- Modal Calendario -->
+  <div id="calendarModal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button id="closeModal" class="modal-close" aria-label="Cerrar">✕</button>
+
+      <header class="modal-header">
+        <div class="habit-head">
+          <div id="modalHabitCircle" class="habit-circle-mini"></div>
+          <div>
+            <h3 id="modalHabitTitle">Hábito</h3>
+            <div id="modalProgressText" class="progress-text">0% — 0 días</div>
+          </div>
+        </div>
+        <div class="modal-progressbar">
+          <div class="progress-track">
+            <div id="modalProgressFill" class="progress-fill" style="width:0%"></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="modal-body">
+        <div id="daysGrid" class="days-grid"></div>
+      </div>
+
+      <footer class="modal-footer">
+        <button id="clearDays" class="btn-secondary">Borrar</button>
+        <button id="saveDays" class="btn-primary">Guardar</button>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+  
+  <script type="module" src="js/calendar.js"></script>
+  
+</body>
+</html>

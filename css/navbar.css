@@ -1,0 +1,97 @@
+/* ========== NAVBAR SUPERIOR ========== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  background: var(--accent2);
+  color: #000;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.theme-toggle {
+  background: var(--accent1);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ========== ACCORDION DE AÑOS ========== */
+.year-accordion {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.accordion-btn {
+  background: var(--accent1);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.year-panel {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  color: #000;
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 120px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  z-index: 50;
+}
+
+.year-panel.show {
+  display: flex;
+}
+
+.year-panel button {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.year-panel button:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* DARK MODE */
+body.dark .topbar {
+  background: #111;
+  color: #fff;
+}
+
+body.dark .accordion-btn {
+  background: #333;
+  color: #fff;
+}
+
+body.dark .year-panel {
+  background: #222;
+  color: #fff;
+}
+
+body.dark .year-panel button:hover {
+  background: rgba(255,255,255,0.1);
+}
