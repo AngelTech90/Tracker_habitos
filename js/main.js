@@ -168,11 +168,14 @@ clearDays.addEventListener('click', () => {
   calendarManager.clearAll();
   calendarManager.renderDaysGrid(document.getElementById('daysGrid'));
 });
+
 saveDays.addEventListener('click', () => {
   calendarManager.save();
   refreshHabitProgress();
   calendarModal.classList.add('hidden');
 });
+
+
 
 /* ---------------- INIT ---------------- */
 function init() {
