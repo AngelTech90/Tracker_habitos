@@ -44,6 +44,8 @@ function renderMonths() {
       selectedMonth = idx;
       monthAccordionBtn.textContent = `${m} ▾`;
       monthPanel.classList.remove('show');
+      // ✅ Save last selected month
+      localStorage.setItem('ht_lastMonth', selectedMonth);
       refreshHabitProgress();
     });
     monthPanel.appendChild(btn);
@@ -63,11 +65,15 @@ function renderYears() {
       selectedYear = y;
       yearAccordionBtn.textContent = `${y} ▾`;
       yearPanel.classList.remove('show');
+
+      // ✅ Save last selected year
+      localStorage.setItem('ht_lastYear', selectedYear);
       refreshHabitProgress();
     });
     yearPanel.appendChild(btn);
   }
 }
+
 yearAccordionBtn.addEventListener('click', () => yearPanel.classList.toggle('show'));
 
 /* ---------------- THEME TOGGLE ---------------- */
@@ -179,9 +185,20 @@ saveDays.addEventListener('click', () => {
 
 /* ---------------- INIT ---------------- */
 function init() {
+  // ✅ Load last selected month/year if available
+  const savedMonth = localStorage.getItem('ht_lastMonth');
+  const savedYear = localStorage.getItem('ht_lastYear');
+  if (savedMonth !== null) selectedMonth = parseInt(savedMonth);
+  if (savedYear !== null) selectedYear = parseInt(savedYear);
+
   renderMonths();
   renderYears();
   initTheme();
   renderHabits();
+
+  // Update UI labels
+  monthAccordionBtn.textContent = `${months[selectedMonth]} ▾`;
+  yearAccordionBtn.textContent = `${selectedYear} ▾`;
 }
+
 init();
